@@ -1,4 +1,6 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+from .models import post  # <--- Agrega esta línea
 
-class HomePageView(TemplateView):
-    template_name = 'home.html'
+class HomePageView(ListView):
+    template_name = "home.html"
+    model = post  # Ahora Python ya sabe qué es "post"

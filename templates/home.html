@@ -3,6 +3,13 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-    <h1>Weeeeeeeeeercome</h1>
+    <h1>mis publicaciones</h1>
+    {% for post in object_list %}
+        <div class="post_entry">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+        </div>
+    {% endfor %}
     <p>This is a "%$#"</p>
+
 {% endblock %}
