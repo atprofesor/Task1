@@ -8,10 +8,12 @@
     <div class="articles-container">
         {% for article in articles %}
             <article style="border-bottom: 1px solid #ccc; margin-bottom: 20px;">
-                <h2>{{ article.title }}</h2>
+                <h2><a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a></h2>
+                
                 <small>Publicado por {{ article.author }} el {{ article.published_date|date:"d/m/Y" }}</small>
                 <p>{{ article.content|truncatewords:30 }}</p>
-                <a href="#">Leer más...</a>
+                
+                <a href="{% url 'article_detail' article.pk %}">Leer más...</a>
             </article>
         {% empty %}
             <p>No hay artículos publicados todavía.</p>
