@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Título por defecto{% endblock %}</title>
-</head>
+    <title>{% block title %}Mi Proyecto{% endblock %}</title>
+    </head>
 <body>
-    <nav>
+    <header>
+        <h1>Panel de Control</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Inicio (Posts/Tareas)</a></li>
+                <li><a href="{% url 'article_list' %}">Blog de Artículos</a></li>
+                <li><a href="/admin/">Administración</a></li>
+            </ul>
         </nav>
+    </header>
 
-    {% block content %}
-    {% endblock %}
+    <hr> <main>
+        {% block content %}
+        {% endblock %}
+    </main>
     
+    <hr>
+
     <footer>
-        <p>Mi proyecto 2026</p>
+        <p>&copy; Mi proyecto 2026 - Todos los derechos reservados</p>
     </footer>
 </body>
 </html>
