@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView   
 from .models import post  # <--- Agrega esta línea
 from .models import Article  # Cambiamos post por Article
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 class HomePageView(ListView):
     template_name = "home.html"
@@ -22,3 +22,8 @@ class ArticleCreateView(CreateView):
     model = Article
     template_name = "article_new.html"
     fields = ["title", "author", "content"] # Los campos que el usuario llenará
+
+class ArticleUpdateView(UpdateView):
+    model = Article
+    template_name = "article_update.html"
+    fields = ["title", "content"]
