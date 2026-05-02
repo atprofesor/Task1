@@ -14,10 +14,15 @@
         </div>
     </article>
 
-    <!-- Añadimos las acciones del artículo aquí -->
-    <div style="margin-top: 20px; padding: 10px; border: 1px dashed #ccc; display: inline-block;">
-        <a href="{% url 'article_update' article.pk %}" style="color: #e67e22; text-decoration: none; font-weight: bold;">
+    <!-- Caja de acciones -->
+    <div style="margin-top: 20px; padding: 15px; border: 1px dashed #ccc; display: inline-block; border-radius: 8px;">
+        <!-- Usamos article_update porque así lo nombramos en urls.py -->
+        <a href="{% url 'article_update' article.pk %}" style="color: #e67e22; text-decoration: none; font-weight: bold; margin-right: 20px;">
             ✍️ Editar este artículo
+        </a>
+        
+        <a href="{% url 'article_delete' article.pk %}" style="color: #e53e3e; text-decoration: none; font-weight: bold;">
+            🗑️ Eliminar este artículo
         </a>
     </div>
 

@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block title %}Eliminar Artículo{% endblock %}
+
+{% block content %}
+    <h1>Eliminar Artículo</h1>
+    
+    <div style="background-color: #fff5f5; border: 1px solid #feb2b2; padding: 20px; border-radius: 8px;">
+        <p>¿Estás seguro de que quieres eliminar el artículo: <strong>"{{ article.title }}"</strong>?</p>
+        <p style="color: #c53030;">Esta acción no se puede deshacer.</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" style="background-color: #e53e3e; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+                Sí, eliminar definitivamente
+            </button>
+            <a href="{% url 'article_detail' article.pk %}" style="margin-left: 15px; text-decoration: none; color: #4a5568;">
+                Cancelar
+            </a>
+        </form>
+    </div>
+{% endblock %}

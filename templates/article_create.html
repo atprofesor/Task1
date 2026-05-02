@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+
+{% block title %}Crear Nuevo Artículo{% endblock %}
+
+{% block content %}
+    <h1>Publicar nuevo artículo</h1>
+
+    <!-- El atributo action vacío indica que el formulario se envía a la misma URL -->
+    <form action="" method="post">
+        {% csrf_token %}
+        
+        <!-- form.as_p envuelve cada campo (título, autor, contenido) en una etiqueta <p> -->
+        {{ form.as_p }}
+        
+        <div style="margin-top: 20px;">
+            <button type="submit" style="background-color: #2ecc71; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                🚀 Publicar Artículo
+            </button>
+            <a href="{% url 'article_list' %}" style="margin-left: 15px; text-decoration: none; color: #7f8c8d;">
+                Cancelar
+            </a>
+        </div>
+    </form>
+{% endblock %}
