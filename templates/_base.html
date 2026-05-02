@@ -15,7 +15,13 @@
                 <li><a href="/admin/">Administración</a></li>
                 <li><a href="{% url 'article_new' %}">+ Nuevo Artículo</a></li>
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background: none; border: none; color: #3182ce; cursor: pointer; font-weight: bold;">
+                        Cerrar sesión ({{ user.username }})
+                    </button>
+                </form>
+                       
                 {% else %}
                     <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
                 {% endif %}
