@@ -14,6 +14,11 @@
                 <li><a href="{% url 'article_list' %}">Blog de Artículos</a></li>
                 <li><a href="/admin/">Administración</a></li>
                 <li><a href="{% url 'article_new' %}">+ Nuevo Artículo</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
